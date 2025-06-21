@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Web\Frontend\Dashboard\DashboardController;
 
 Route::get('/', function () {
-    return Inertia::render('Welcome');
+    return Inertia::render('Home');
 })->name('home');
 
 Route::group(['middleware' => ['auth', 'verified']], function () {
