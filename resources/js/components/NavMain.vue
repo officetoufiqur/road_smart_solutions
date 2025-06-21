@@ -74,7 +74,7 @@ watchEffect(() => {
                   :is-active="sub.href === page.url"
                   :tooltip="sub.title"
                 >
-                  <Link :href="sub.href" class="flex items-center">
+                  <Link :href="sub.href" class="flex items-center pl-5">
                     <component :is="sub.icon" />
                     <span>{{ sub.title }}</span>
                   </Link>

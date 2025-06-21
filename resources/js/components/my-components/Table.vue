@@ -6,6 +6,7 @@ import { ref, computed, watch, defineProps, defineExpose } from 'vue';
 interface TableData {
     [key: string]: any;
     id: number;
+    contact_id?: number | string;
 }
 
 interface TableColumn {
@@ -19,6 +20,11 @@ const props = defineProps<{
     plans: TableData[];
     columns: TableColumn[];
     title?: string;
+    showCreateButton?: boolean;
+    showExportButton?: boolean;
+    createRoute?: string;
+    createTitle?: string;
+    filterBtn?: Array<string>;
 }>();
 
 const entriesPerPage = ref(10);
@@ -80,22 +86,35 @@ defineExpose({ selectedRows });
     <div class="">
         <h2 class="text-2xl font-semibold mb-4">{{ title }}</h2>
 
-        <div class="flex items-center gap-2 justify-between mb-2">
-            <div class="flex gap-2 mb-4">
-                <button class="bg-red-700 duration-300 cursor-pointer text-white px-4 py-1 rounded">All</button>
-                <button class="hover:bg-gray-200 duration-300 cursor-pointer px-4 py-1 rounded">Active</button>
-                <button class="hover:bg-gray-200 duration-300 cursor-pointer px-4 py-1 rounded">Inactive</button>
-                <button class="hover:bg-gray-200 duration-300 cursor-pointer px-4 py-1 rounded">Suspended</button>
+        <div class="lg:flex md:flex items-center gap-2 justify-between mb-2">
+            <div class="flex gap-1 mb-4">
+                <button class="bg-red-700 duration-300 cursor-pointer text-[13px] md:text-[15px] lg:[16px] text-white px-4 py-1 rounded">All</button>
+                <button v-for="item in filterBtn" :key="item"
+                    class="hover:bg-gray-200 duration-300 text-[13px] md:text-[15px] lg:[16px] cursor-pointer px-4 py-1 rounded">
+                    {{ item }}
+                </button>
+
             </div>
             <div>
                 <div class="flex gap-2 mb-4">
-                    <Link :href="route('users.add')" class="bg-red-700 duration-300 cursor-pointer text-white px-8 py-2 rounded">Add User</Link>
-                    <button class="hover:bg-gray-200 duration-300 border border-[#707070] cursor-pointer px-8 py-1 rounded">Export</button>
+                    <template v-if="showCreateButton">
+                        <Link :href="createRoute ?? '#'"
+                            class="bg-red-700 duration-300 text-[13px] md:text-[15px] lg:[16px] cursor-pointer text-white px-8 py-2 rounded">
+                        {{ props.createTitle ?? 'Create' }}
+                        </Link>
+                    </template>
+                    <template v-if="showExportButton">
+                        <button
+                            class="hover:bg-gray-200  text-[13px] md:text-[15px] lg:[16px] duration-300 border border-[#707070] cursor-pointer px-8 py-1 rounded">
+                            Export
+                        </button>
+                    </template>
+
                 </div>
             </div>
         </div>
 
-        <div class="flex items-center justify-between mb-4">
+        <div class="lg:flex md:flex items-center justify-between mb-4 space-y-2 lg:space-y-0">
             <div class="flex items-center gap-2">
                 <select v-model="entriesPerPage" class="border px-2 py-1 rounded text-sm border-gray-300">
                     <option :value="5">5</option>
@@ -110,25 +129,22 @@ defineExpose({ selectedRows });
                     <label class="mr-2">Search:</label>
                     <input v-model="search" type="text" class="border px-2 py-1 rounded border-gray-300" />
                 </div>
-                <ArrowDownUpIcon class="text-[#707070] cursor-pointer" />
+                <ArrowDownUpIcon class="text-[#707070] w-5 h-5 mt-1 lg:mt-0 cursor-pointer" />
             </div>
         </div>
 
         <div class="overflow-x-auto">
             <table class="min-w-full bg-white border">
-                <thead class="bg-gray-100 text-sm text-gray-700">
+                <thead class="bg-[#FCF2F2] text-sm text-gray-500">
                     <tr>
                         <th class="px-4 py-2 text-left">
-                            <input
-                                type="checkbox"
-                                @change="(e) => {
-                                    const target = e.target as HTMLInputElement;
-                                    selectedRows = target.checked ? paginatedData.map(u => u.id) : [];
-                                }"
-                                :checked="paginatedData.every(row => selectedRows.includes(row.id))"
-                            />
+                            <input type="checkbox" @change="(e) => {
+                                const target = e.target as HTMLInputElement;
+                                selectedRows = target.checked ? paginatedData.map(u => u.id) : [];
+                            }" :checked="paginatedData.every(row => selectedRows.includes(row.id))" />
                         </th>
-                        <th v-for="col in columns" :key="col.key" class="px-4 py-2 text-left cursor-pointer select-none" @click="() => toggleSort(col.key)">
+                        <th v-for="col in columns" :key="col.key" class="px-4 py-2 text-left cursor-pointer select-none"
+                            @click="() => toggleSort(col.key)">
                             {{ col.label }}
                             <component :is="col.icon" v-if="col.icon" class="inline w-4 h-4 ml-1" />
                             <span v-if="sortKey === col.key">
@@ -142,7 +158,7 @@ defineExpose({ selectedRows });
                         <td class="border border-gray-200 px-4 py-2">
                             <input type="checkbox" :value="item.id" v-model="selectedRows" />
                         </td>
-                        <td v-for="col in columns" :key="col.key" class="border border-gray-200 px-4 py-2">
+                        <td v-for="col in columns" :key="col.key" class="border text-[13px] md:text-[15px] lg:[16px] border-gray-200 px-4 py-2">
                             <slot :name="col.key" :item="item">
                                 {{ item[col.key] }}
                             </slot>

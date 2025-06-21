@@ -3,7 +3,7 @@ import NavMain from '@/components/NavMain.vue';
 import { Sidebar, SidebarContent, SidebarHeader, SidebarMenu, SidebarMenuItem } from '@/components/ui/sidebar';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/vue3';
-import { CircleUserRoundIcon, LayoutGrid, User2Icon } from 'lucide-vue-next';
+import { LayoutGrid, UserIcon } from 'lucide-vue-next';
 
 const mainNavItems: NavItem[] = [
     {
@@ -14,18 +14,28 @@ const mainNavItems: NavItem[] = [
     {
         title: 'Account',
         href: '/users',
-        icon: CircleUserRoundIcon,
+        icon: UserIcon,
         subMenu: [
             {
                 title: 'Users',
-                href: '/users',
-                icon: User2Icon,
+                href: '/users'
             },
             {
                 title: 'View Profile',
-                href: '/view/profile',
-                icon: User2Icon,
-            }
+                href: '/view/profile'
+            },
+            {
+                title: 'Contacts',
+                href: '/contacts'
+            },
+            {
+                title: 'Customer',
+                href: '/customers'
+            },
+            {
+                title: 'View Customer',
+                href: '/view/customer'
+            },
         ]
     },
 ];
