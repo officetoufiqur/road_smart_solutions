@@ -24,7 +24,7 @@ const personalDetails = ref({
     dateOfBirth: '25/05/201980',
     nationalId: '25/05/201980',
     driversLicense: '25/05/201980',
-    licenseClass: 'B',
+    licenseClass: 'license',
     licenseExpiry: 'March 30, 2026'
 })
 
