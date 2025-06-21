@@ -2,7 +2,7 @@ name: Road Smart Solution
 on:
   push:
     branches:
-      - main
+      - master
 jobs:
   FTP-Deploy-Action:
     name: FTP-Deploy-Action
