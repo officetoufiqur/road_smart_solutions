@@ -29,11 +29,11 @@ const postComment = () => {
     <Head title="Users" />
 
     <AppLayout :breadcrumbs="breadcrumbs">
-        <section class="my-16 mx-20">
-            <div class="min-h-screen">
+        <section class="my-16 xl:mx-20 md:mx-10 mx-5">
+            <div class="min-h-screen space-y-5 lg:space-y-0">
                 <!-- Top Navigation -->
                 <nav class="border shadow  px-6 py-3">
-                    <div class="flex items-center justify-between space-x-6">
+                    <div class="lg:flex items-center justify-between space-x-6">
                         <div class="flex space-x-3">
                             <h2 class="text-lg flex font-semibold text-gray-500">
                                 <UserIcon class="inline mt-3.5 text-[#D93243]" />
@@ -44,7 +44,7 @@ const postComment = () => {
                                 <span class="text-gray-400 text-sm">New Sale • Jan 2024</span>
                             </div>
                         </div>
-                        <div class="flex space-x-6 text-gray-700 text-sm">
+                        <div class="lg:flex space-x-6 text-gray-700 text-sm mt-3 lg:mt-0 space-y-1 lg:space-y-0">
                             <button class="hover:text-white">Rest MFA</button>
                             <button class="hover:text-white">Disable MFA</button>
                             <button class="hover:text-white">Reset Password</button>
@@ -53,7 +53,7 @@ const postComment = () => {
                     </div>
                 </nav>
 
-                <div class="flex gap-6 p-6">
+                <div class="lg:flex gap-6 lg:p-6">
                     <!-- Left Column -->
                     <div class="flex-1 space-y-6">
                         <!-- Sessions Section -->
@@ -92,12 +92,12 @@ const postComment = () => {
                         <div class="border shadow rounded-lg p-6">
                             <textarea v-model="comment" placeholder="Leave a comment"
                                 class="w-full border border-gray-300 rounded p-3 h-24 resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-                            <div class="flex justify-between items-center mt-4">
+                            <div class="lg:flex justify-between items-center mt-4 space-y-5 lg:space-y-0">
                                 <button @click="postComment"
-                                    class="bg-red-700 hover:bg-red-600 cursor-pointer text-white px-6 py-2 rounded">
+                                    class="bg-red-700 hover:bg-red-600 cursor-pointer text-white text-[14px] md:text-[16px] px-6 py-2 rounded">
                                     Post
                                 </button>
-                                <span class="text-gray-500 text-sm">Only you and other staff can see comments</span>
+                                <p class="text-gray-500 text-sm">Only you and other staff can see comments</p>
                             </div>
                         </div>
 
@@ -134,7 +134,7 @@ const postComment = () => {
                     </div>
 
                     <!-- Right Column -->
-                    <div class="w-80 space-y-6">
+                    <div class="lg:w-100 space-y-6 mt-5 lg:mt-0">
                         <!-- User Profile Section -->
                         <div class="border shadow rounded-lg p-6">
                             <div class="flex items-center mb-4">

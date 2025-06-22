@@ -38,14 +38,14 @@ const status = ref('Active')
     <Head title="Users" />
 
     <AppLayout :breadcrumbs="breadcrumbs">
-        <section class="my-16 mx-20">
-            <div class="flex justify-between mb-4">
+        <section class="pt-10 lg:px-20 md:px-10 px-5">
+            <div class="flex justify-between mb-4 items-center">
                 <h2 class="text-lg font-semibold text-gray-500">
                     <UserIcon class="inline mt-[-6px] text-[#D93243] w-5.5 h-5.5" />
                     <ChevronRightIcon class="inline mt-[-4px] text-gray-500 w-4 h-4" />Add User
                 </h2>
                 <Link :href="route('users')"
-                    class="bg-red-700 duration-300 cursor-pointer text-white px-8 py-2.5 rounded">Back</Link>
+                    class="bg-red-700 duration-300 cursor-pointer text-white md:text-[16px] text-[14px] px-8 py-2.5 rounded">Back</Link>
             </div>
 
             <div class="min-h-screen">
@@ -56,8 +56,8 @@ const status = ref('Active')
                         <div class="border shadow-md rounded-lg p-6 mb-4">
                             <h2 class="text-lg font-semibold mb-4 text-gray-800">User overview</h2>
 
-                            <div class="grid grid-cols-2 gap-4 mb-4">
-                                <div>
+                            <div class="grid lg:grid-cols-2 gap-4 mb-4">
+                                <div class="">
                                     <label class="block text-sm font-medium text-gray-700 mb-1">First Name</label>
                                     <div class="flex">
                                         <select class="border border-gray-300 rounded-l px-2 py-2 bg-white text-sm">
@@ -66,7 +66,7 @@ const status = ref('Active')
                                             <option>Mrs</option>
                                         </select>
                                         <input v-model="userForm.firstName" type="text"
-                                            class="flex-1 border-t border-b border-r border-gray-300 rounded-r px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                                            class="flex-1 w-50 sm:w-full md:w-full lg:w-full border-t border-b border-r border-gray-300 rounded-r px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
                                     </div>
                                 </div>
                                 <div>
@@ -85,7 +85,7 @@ const status = ref('Active')
                                         <option>🇨🇦</option>
                                     </select>
                                     <input v-model="userForm.phone" type="tel" placeholder="+1 123 456 7890"
-                                        class="flex-1 border-t border-b border-r border-gray-300 rounded-r px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                                        class="flex-1 border-t w-50 border-b border-r border-gray-300 rounded-r px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
                                 </div>
                             </div>
 
@@ -138,7 +138,7 @@ const status = ref('Active')
                                     class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
                             </div>
 
-                            <div class="grid grid-cols-2 gap-4">
+                            <div class="grid lg:grid-cols-2 gap-4">
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-1">License Class</label>
                                     <select v-model="personalDetails.licenseClass"

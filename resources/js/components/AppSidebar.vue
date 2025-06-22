@@ -12,33 +12,44 @@ const mainNavItems: NavItem[] = [
         icon: LayoutGrid,
     },
     {
-        title: 'Account',
-        href: '/users',
+        title: 'Account And Contact',
         icon: UserIcon,
         subMenu: [
             {
                 title: 'Users',
-                href: '/users'
+                href: '/users',
+                subMenu: [
+                    {
+                        title: 'Users',
+                        href: '/users',
+                    },
+                    {
+                        title: 'View Profile',
+                        href: '/view/profile',
+                    },
+                ]
             },
             {
-                title: 'View Profile',
-                href: '/view/profile'
+                title: 'Account',
+                subMenu: [
+                    {
+                        title: 'Customer',
+                        href: '/customers',
+                    },
+                    {
+                        title: 'View Customer',
+                        href: '/view/customer',
+                    },
+                ]
             },
             {
                 title: 'Contacts',
-                href: '/contacts'
+                href: '/contacts',
             },
-            {
-                title: 'Customer',
-                href: '/customers'
-            },
-            {
-                title: 'View Customer',
-                href: '/view/customer'
-            },
-        ]
+        ],
     },
 ];
+
 </script>
 
 <template>
