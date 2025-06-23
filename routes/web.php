@@ -25,6 +25,17 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/customers', [AccountController::class, 'customers'])->name('customers');
     Route::get('/add/customer', [AccountController::class, 'addCustomer'])->name('customer.add');
     Route::get('/view/customer', [AccountController::class, 'viewCustomer'])->name('view.customer');
+
+    // vehicles
+    Route::get('/vehicles', [AccountController::class, 'vehicles'])->name('vehicles');
+    Route::get('/add/vehicles', [AccountController::class, 'addVehicles'])->name('add.vehicles');
+    Route::get('/specifications', [AccountController::class, 'specifications'])->name('specifications');
+    Route::get('/ownership', [AccountController::class, 'ownership'])->name('ownership');
+    Route::get('/administrative', [AccountController::class, 'administrative'])->name('administrative');
+
+
+    Route::get('/view/vehicles', [AccountController::class, 'viewVehicles'])->name('view.vehicles');
+    Route::get('/edit/vehicles', [AccountController::class, 'editVehicles'])->name('edit.vehicles');
 });
 
 

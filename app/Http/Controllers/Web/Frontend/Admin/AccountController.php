@@ -47,4 +47,37 @@ class AccountController extends Controller
     {
         return Inertia::render('admin/account/customer/ViewCustomer');
     }
+
+    public function vehicles()
+    {
+        return Inertia::render('admin/vehicles/Vehicles');
+    }
+    public function addVehicles()
+    {
+        return Inertia::render('admin/vehicles/AddVehicles');
+    }
+     public function specifications()
+    {
+        return Inertia::render('admin/vehicles/Specifications');
+    }
+
+    public function ownership()
+    {
+        return Inertia::render('admin/vehicles/Ownership');
+    }
+
+    public function administrative()
+    {
+        return Inertia::render('admin/vehicles/Administrative');
+    }
+
+    public function viewVehicles()
+    {
+        return Inertia::render('admin/vehicles/ViewVehicles');
+    }
+
+    public function editVehicles()
+    {
+        return Inertia::render('admin/vehicles/EditVehicles');
+    }
 }

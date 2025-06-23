@@ -3,7 +3,7 @@ import NavMain from '@/components/NavMain.vue';
 import { Sidebar, SidebarContent, SidebarHeader, SidebarMenu, SidebarMenuItem } from '@/components/ui/sidebar';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/vue3';
-import { LayoutGrid, UserIcon } from 'lucide-vue-next';
+import { CarFront, LayoutGrid, UserIcon } from 'lucide-vue-next';
 
 const mainNavItems: NavItem[] = [
     {
@@ -47,6 +47,24 @@ const mainNavItems: NavItem[] = [
                 href: '/contacts',
             },
         ],
+    },
+    {
+        title: 'Vehicles',
+        icon: CarFront,
+        subMenu: [
+            {
+                title: 'Vehicles',
+                href: '/vehicles',
+            },
+            {
+                title: 'View Vehicle',
+                href: '/view/vehicles',
+            },
+             {
+                title: 'Edit Vehicle',
+                href: '/edit/vehicles',
+            },
+        ]
     },
 ];
 
