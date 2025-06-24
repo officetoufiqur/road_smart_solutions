@@ -4,6 +4,7 @@ use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Web\Frontend\Admin\AccountController;
 use App\Http\Controllers\Web\Frontend\Admin\DashboardController;
+use App\Http\Controllers\Web\Frontend\Admin\VehiclesController;
 
 Route::get('/', function () {
     return Inertia::render('Home');
@@ -36,6 +37,16 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
     Route::get('/view/vehicles', [AccountController::class, 'viewVehicles'])->name('view.vehicles');
     Route::get('/edit/vehicles', [AccountController::class, 'editVehicles'])->name('edit.vehicles');
+
+    Route::get('/master/vehicles', [AccountController::class, 'masterVehicles'])->name('master.vehicles');
+    Route::get('/add/master/vehicles', [AccountController::class, 'masterAddVehicles'])->name('add.master.vehicles');
+
+    Route::get('/sellers', [AccountController::class, 'sellers'])->name('sellers');
+    Route::get('/vendor/details', [AccountController::class, 'vendorDetails'])->name('vendor.details');
+    Route::get('/orders', [AccountController::class, 'orders'])->name('orders');
+    Route::get('/vehicle/request', [AccountController::class, 'request'])->name('request');
+
+    Route::get('/vehicle/contacts', [VehiclesController::class, 'vehicleContacts'])->name('vehicle.contacts');
 });
 
 

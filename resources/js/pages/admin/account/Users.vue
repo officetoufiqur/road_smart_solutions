@@ -84,7 +84,7 @@ const columns = [
 
     <AppLayout :breadcrumbs="breadcrumbs">
         <div class="pt-10 lg:px-20 md:px-10 px-5">
-            <Table :plans="users" :columns="columns" :show-create-button="true" :show-export-button="true" create-route="/add/users" create-title="Add User" :filter-btn="['Active', 'Inactive', 'Suspended']">
+            <Table :plans="users" :columns="columns" :show-create-button="true" :show-export-button="true" create-route="/add/users" create-title="Add User" :filter-btn="['Active', 'Inactive', 'Suspended']" :shortIcon=true>
                 <template #avatar="{ item }">
                     <div class="flex items-center gap-2">
                         <img :src="item.avatar" class="w-8 h-8 rounded-full" />

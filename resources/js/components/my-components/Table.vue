@@ -25,6 +25,8 @@ const props = defineProps<{
     createRoute?: string;
     createTitle?: string;
     filterBtn?: Array<string>;
+    filter?: boolean;
+    shortIcon?: boolean;
 }>();
 
 const entriesPerPage = ref(10);
@@ -115,13 +117,29 @@ defineExpose({ selectedRows });
         </div>
 
         <div class="lg:flex md:flex items-center justify-between mb-4 space-y-2 lg:space-y-0">
-            <div class="flex items-center gap-2">
+            <div class="flex items-center gap-5">
                 <select v-model="entriesPerPage" class="border px-2 py-1 rounded text-sm border-gray-300">
                     <option :value="5">5</option>
                     <option :value="10">10</option>
                     <option :value="20">20</option>
                 </select>
                 <span class="text-sm">Entries per page</span>
+
+                <div v-if="filter" class="">
+                    <select name="" id="" class="text-sm cursor-pointer bg-[#F4F4F3] px-6 py-2 rounded">
+                        <option value="">User Access</option>
+                    </select>
+                </div>
+                <div v-if="filter" class="">
+                    <select name="" id="" class="text-sm cursor-pointer bg-[#F4F4F3] px-6 py-2 rounded">
+                        <option value="">User Type</option>
+                    </select>
+                </div>
+                <div v-if="filter" class="">
+                    <select name="" id="" class="text-sm cursor-pointer bg-[#F4F4F3] px-6 py-2 rounded">
+                        <option value="">Classification</option>
+                    </select>
+                </div>
             </div>
 
             <div class="text-sm flex gap-2">
@@ -129,7 +147,7 @@ defineExpose({ selectedRows });
                     <label class="mr-2">Search:</label>
                     <input v-model="search" type="text" class="border px-2 py-1 rounded border-gray-300" />
                 </div>
-                <ArrowDownUpIcon class="text-[#707070] w-5 h-5 mt-1 lg:mt-0 cursor-pointer" />
+                <ArrowDownUpIcon class="text-[#707070] w-5 h-5 mt-1 lg:mt-0 cursor-pointer" v-if="shortIcon" />
             </div>
         </div>
 

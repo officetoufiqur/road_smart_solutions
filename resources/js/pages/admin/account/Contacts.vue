@@ -52,7 +52,7 @@ const columns = [
 
     <AppLayout :breadcrumbs="breadcrumbs">
         <div class="pt-10 lg:px-20 px-5">
-            <Table :plans="Contacts" :columns="columns" :show-create-button="true" :show-export-button="true" create-route="/add/contacts" create-title="Create Contact" :filter-btn="['Active', 'Closed', 'Suspended']">
+            <Table :plans="Contacts" :columns="columns" :shortIcon=true :show-create-button="true" :show-export-button="true" create-route="/add/contacts" create-title="Create Contact" :filter-btn="['Active', 'Closed', 'Suspended']">
                 <template #status="{ item }">
                     <span class="text-[#56BD18] bg-green-100 px-3.5 py-1.5 rounded text-sm font-semibold">
                         {{ item.status }}

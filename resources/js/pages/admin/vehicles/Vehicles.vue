@@ -51,7 +51,7 @@ const columns = [
 
     <AppLayout :breadcrumbs="breadcrumbs">
         <div class="pt-10 lg:px-20 px-5">
-            <Table :plans="Vehicles" :columns="columns" :show-create-button="true" :show-export-button="true" create-route="/add/vehicles" create-title="Add Vehicle" :filter-btn="['Active', 'Flagged', 'Duplicate', 'Archived']">
+            <Table :plans="Vehicles" :columns="columns" :show-create-button="true" :show-export-button="true" create-route="/add/vehicles" :shortIcon=true create-title="Add Vehicle" :filter-btn="['Active', 'Flagged', 'Duplicate', 'Archived']">
                 <template #verified="{ item }">
                     <div class="flex items-center gap-1">
                         <CheckIcon class="bg-green-600 text-white w-3.5 h-3.5 rounded p-[2px]" />
