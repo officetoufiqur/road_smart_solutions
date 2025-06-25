@@ -18,29 +18,10 @@ const mainNavItems: NavItem[] = [
             {
                 title: 'Users',
                 href: '/users',
-                subMenu: [
-                    {
-                        title: 'Users',
-                        href: '/users',
-                    },
-                    {
-                        title: 'View Profile',
-                        href: '/view/profile',
-                    },
-                ]
             },
             {
-                title: 'Account',
-                subMenu: [
-                    {
-                        title: 'Customer',
-                        href: '/customers',
-                    },
-                    {
-                        title: 'View Customer',
-                        href: '/view/customer',
-                    },
-                ]
+                title: 'Customer',
+                href: '/customers',
             },
             {
                 title: 'Contacts',
@@ -57,29 +38,12 @@ const mainNavItems: NavItem[] = [
                 href: '/vehicles',
             },
             {
-                title: 'View Vehicle',
-                href: '/view/vehicles',
-            },
-             {
-                title: 'Edit Vehicle',
-                href: '/edit/vehicles',
-            },
-            {
                 title: 'Master Vehicle',
-                subMenu: [
-                    {
-                        title: 'Master Vehicle',
-                        href: '/master/vehicles',
-                    },
-                    {
-                        title: 'View Master Vehicle',
-                        href: '/view/master/vehicles',
-                    },
-                ]
+                href: '/master/vehicles',
             },
         ]
     },
-     {
+    {
         title: 'Sellers',
         icon: UserRoundCogIcon,
         subMenu: [

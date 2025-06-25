@@ -5,6 +5,7 @@ import { Head } from '@inertiajs/vue3';
 import { ref } from 'vue';
 import Table from '@/components/my-components/Table.vue';
 import { EllipsisIcon, HandIcon, PencilIcon, UserIcon } from 'lucide-vue-next';
+import { router } from '@inertiajs/vue3';
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
@@ -76,6 +77,11 @@ const columns = [
     { key: 'lastLogin', label: 'Last Login' },
     { key: 'action', label: 'Action' }
 ];
+
+
+function viewProfile(id: number) {
+    router.visit(`/view/profile/${id}`);
+}
 </script>
 
 <template>
@@ -118,17 +124,17 @@ const columns = [
                         <div v-if="activeAction === item.id"
                             class="absolute z-10 right-40 mt-2 bg-white rounded-xl shadow border w-50">
                             <ul class="py-4 px-2">
-                                <li
+                                <li @click="viewProfile(item.id)"
                                     class="flex items-center gap-2 px-4 py-2 hover:bg-red-50 cursor-pointer">
-                                    <span class="text-lg"><UserIcon class="text-red-700 bg-red-100 w-9 h-9 p-2 rounded-md" /></span> View Profile
+                                    <span  class="text-lg"><UserIcon class="text-red-700 bg-red-100 w-8 h-8 p-2 rounded-md" /></span> View Profile
                                 </li>
                                 <li
                                     class="flex items-center gap-2 px-4 py-2 hover:bg-red-50 cursor-pointer">
-                                    <span class="text-lg"><PencilIcon class="text-red-700 bg-red-100 w-9 h-9 p-2 rounded-md" /></span> Edit Access
+                                    <span class="text-lg"><PencilIcon class="text-red-700 bg-red-100 w-8 h-8 p-2 rounded-md" /></span> Edit Access
                                 </li>
                                 <li
                                     class="flex items-center gap-2 px-4 py-2 hover:bg-red-50 cursor-pointer">
-                                    <span class="text-lg"><HandIcon class="text-red-700 bg-red-100 w-9 h-9 p-2 rounded-md" /></span> De-active
+                                    <span class="text-lg"><HandIcon class="text-red-700 bg-red-100 w-8 h-8 p-2 rounded-md" /></span> De-active
                                 </li>
                             </ul>
                         </div>

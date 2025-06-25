@@ -1,15 +1,15 @@
 <script setup lang="ts">
 import AppLayout from '@/layouts/AppLayout.vue';
 import { type BreadcrumbItem } from '@/types';
-import { Head, Link } from '@inertiajs/vue3';
+import { Head, router } from '@inertiajs/vue3';
 import { ref } from 'vue';
 import Table from '@/components/my-components/Table.vue';
-import {  SquarePenIcon, Trash2Icon } from 'lucide-vue-next';
+import { SquarePenIcon, Trash2Icon } from 'lucide-vue-next';
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
-        title: 'Users',
-        href: '/users',
+        title: 'Contacts',
+        href: '/vehicle/contacts',
     }
 ];
 
@@ -35,6 +35,10 @@ const columns = [
     { key: 'status', label: 'Status' },
     { key: 'action', label: 'Action' }
 ];
+
+function editUser(id: number) {
+    router.visit(`/vehicle/contacts/edit/${id}`);
+}
 </script>
 
 <template>
@@ -43,7 +47,8 @@ const columns = [
 
     <AppLayout :breadcrumbs="breadcrumbs">
         <div class="pt-10 lg:px-20 md:px-10 px-5">
-            <Table :plans="users" :columns="columns" :filter-btn="['User', 'No User Access', 'Subscribers','Achieved']" :filter=true>
+            <Table :plans="users" :columns="columns" :filter-btn="['User', 'No User Access', 'Subscribers', 'Achieved']"
+                :filter=true>
                 <template #avatar="{ item }">
                     <div class="flex items-center gap-2">
                         <img :src="item.avatar" class="w-8 h-8 rounded-full" />
@@ -70,8 +75,12 @@ const columns = [
                 </template>
                 <template #action="{ item }">
                     <div class="flex items-center gap-2">
-                        <SquarePenIcon class="w-4 h-4" />
-                        <Trash2Icon class="w-4 h-4" />
+                        <button @click="editUser(item.id)" class="cursor-pointer text-green-600 hover:text-green-700">
+                            <SquarePenIcon class="w-5 h-5" />
+                        </button>
+                        <button class="cursor-pointer text-red-600 hover:text-red-700">
+                             <Trash2Icon class="w-5 h-5" />
+                        </button>
                     </div>
                 </template>
             </Table>

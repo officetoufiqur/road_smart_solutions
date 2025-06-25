@@ -18,7 +18,7 @@ class AccountController extends Controller
         return Inertia::render('admin/account/AddUsers');
     }
 
-    public function viewProfile()
+    public function viewProfile($id)
     {
         return Inertia::render('admin/account/ViewProfile');
     }
@@ -43,7 +43,7 @@ class AccountController extends Controller
         return Inertia::render('admin/account/customer/AddCustomer');
     }
 
-    public function viewCustomer()
+    public function viewCustomer($id)
     {
         return Inertia::render('admin/account/customer/ViewCustomer');
     }
@@ -71,12 +71,12 @@ class AccountController extends Controller
         return Inertia::render('admin/vehicles/Administrative');
     }
 
-    public function viewVehicles()
+    public function viewVehicles($id)
     {
         return Inertia::render('admin/vehicles/ViewVehicles');
     }
 
-    public function editVehicles()
+    public function editVehicles($id)
     {
         return Inertia::render('admin/vehicles/EditVehicles');
     }

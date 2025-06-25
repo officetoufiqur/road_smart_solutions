@@ -12,4 +12,9 @@ class VehiclesController extends Controller
     {
         return Inertia::render('admin/vehicles/VehicleContacts');
     }
+
+    public function vehicleContactsEdit()
+    {
+        return Inertia::render('admin/vehicles/VehicleContactsEdit');
+    }
 }
