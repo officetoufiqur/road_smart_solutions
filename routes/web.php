@@ -4,6 +4,7 @@ use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Web\Frontend\Admin\AccountController;
 use App\Http\Controllers\Web\Frontend\Admin\DashboardController;
+use App\Http\Controllers\Web\Frontend\Admin\ProductController;
 use App\Http\Controllers\Web\Frontend\Admin\VehiclesController;
 
 Route::get('/', function () {
@@ -48,6 +49,13 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
     Route::get('/vehicle/contacts', [VehiclesController::class, 'vehicleContacts'])->name('vehicle.contacts');
     Route::get('/vehicle/contacts/edit/{id}', [VehiclesController::class, 'vehicleContactsEdit'])->name('vehicle.contacts.edit');
+
+
+    Route::get('/coverage', [ProductController::class, 'coverage'])->name('coverage');
+    Route::get('/add/coverage', [ProductController::class, 'addCoverage'])->name('add.coverage');
+    Route::get('/add/coverage/search', [ProductController::class, 'addCoverageSearch'])->name('add.coverage.search');
+    Route::get('/coverage/view/{id}', [ProductController::class, 'viewCoverage'])->name('coverage.view');
+
 });
 
 

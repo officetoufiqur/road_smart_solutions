@@ -3,7 +3,7 @@ import NavMain from '@/components/NavMain.vue';
 import { Sidebar, SidebarContent, SidebarHeader, SidebarMenu, SidebarMenuItem } from '@/components/ui/sidebar';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/vue3';
-import { CarFront, LayoutGrid, UserIcon, UserRoundCogIcon } from 'lucide-vue-next';
+import { CarFront, LayoutGrid, MailIcon, ShoppingBasketIcon, UserIcon, UserRoundCogIcon } from 'lucide-vue-next';
 
 const mainNavItems: NavItem[] = [
     {
@@ -60,7 +60,17 @@ const mainNavItems: NavItem[] = [
     {
         title: 'Contact',
         href: '/vehicle/contacts',
-        icon: UserIcon,
+        icon: MailIcon,
+    },
+    {
+        title: 'Produuct',
+        icon: ShoppingBasketIcon,
+        subMenu: [
+            {
+                title: 'Coverage',
+                href: '/coverage',
+            }
+        ]
     }
 ];
 
