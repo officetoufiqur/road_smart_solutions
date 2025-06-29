@@ -22,6 +22,8 @@ const props = defineProps<{
     title?: string;
     showCreateButton?: boolean;
     showExportButton?: boolean;
+    importButton?: boolean;
+    moreActionButton?: boolean;
     createRoute?: string;
     createTitle?: string;
     filterBtn?: Array<string>;
@@ -98,20 +100,31 @@ defineExpose({ selectedRows });
 
             </div>
             <div>
-                <div class="flex gap-2 mb-4">
-                    <template v-if="showCreateButton">
-                        <Link :href="createRoute ?? '#'"
-                            class="bg-red-700 duration-300 text-[13px] md:text-[15px] lg:[16px] cursor-pointer text-white px-8 py-2 rounded">
-                        {{ props.createTitle ?? 'Create' }}
-                        </Link>
-                    </template>
+                <div class="lg:flex gap-2 mb-4 space-x-4 space-y-5 lg:space-y-0 lg:space-x-0">
                     <template v-if="showExportButton">
                         <button
                             class="hover:bg-gray-200  text-[13px] md:text-[15px] lg:[16px] duration-300 border border-[#707070] cursor-pointer px-8 py-1 rounded">
                             Export
                         </button>
                     </template>
-
+                    <template v-if="importButton">
+                        <button
+                            class="hover:bg-gray-200  text-[13px] md:text-[15px] lg:[16px] duration-300 border border-[#707070] cursor-pointer px-8 py-1 rounded">
+                            Import
+                        </button>
+                    </template>
+                    <template v-if="moreActionButton">
+                        <button
+                            class="hover:bg-gray-200  text-[13px] md:text-[15px] lg:[16px] duration-300 border border-[#707070] cursor-pointer px-8 py-1 rounded">
+                            More Action
+                        </button>
+                    </template>
+                    <template v-if="showCreateButton">
+                        <Link :href="createRoute ?? '#'"
+                            class="bg-red-700 duration-300 text-[13px] md:text-[15px] lg:[16px] cursor-pointer text-white px-8 py-2 rounded">
+                        {{ props.createTitle ?? 'Create' }}
+                        </Link>
+                    </template>
                 </div>
             </div>
         </div>

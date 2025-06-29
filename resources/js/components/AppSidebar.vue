@@ -3,7 +3,7 @@ import NavMain from '@/components/NavMain.vue';
 import { Sidebar, SidebarContent, SidebarHeader, SidebarMenu, SidebarMenuItem } from '@/components/ui/sidebar';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/vue3';
-import { CarFront, LayoutGrid, MailIcon, ShoppingBasketIcon, UserIcon, UserRoundCogIcon } from 'lucide-vue-next';
+import { CarFront, LayoutGrid, MailIcon, ShoppingBasketIcon, UserIcon, UserRoundCogIcon, WrenchIcon } from 'lucide-vue-next';
 
 const mainNavItems: NavItem[] = [
     {
@@ -69,8 +69,17 @@ const mainNavItems: NavItem[] = [
             {
                 title: 'Coverage',
                 href: '/coverage',
+            },
+            {
+                title: 'Product Complete Listing',
+                href: '/product/complete/listing',
             }
         ]
+    },
+    {
+        title: 'Service',
+        icon: WrenchIcon,
+        href: '/service'
     }
 ];
 

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Web\Frontend\Admin\AccountController;
 use App\Http\Controllers\Web\Frontend\Admin\DashboardController;
 use App\Http\Controllers\Web\Frontend\Admin\ProductController;
+use App\Http\Controllers\Web\Frontend\Admin\ServiceController;
 use App\Http\Controllers\Web\Frontend\Admin\VehiclesController;
 
 Route::get('/', function () {
@@ -51,11 +52,20 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/vehicle/contacts/edit/{id}', [VehiclesController::class, 'vehicleContactsEdit'])->name('vehicle.contacts.edit');
 
 
+    // Product
     Route::get('/coverage', [ProductController::class, 'coverage'])->name('coverage');
     Route::get('/add/coverage', [ProductController::class, 'addCoverage'])->name('add.coverage');
     Route::get('/add/coverage/search', [ProductController::class, 'addCoverageSearch'])->name('add.coverage.search');
     Route::get('/coverage/view/{id}', [ProductController::class, 'viewCoverage'])->name('coverage.view');
-
+    
+    Route::get('/product/complete/listing', [ProductController::class, 'productCompleteListing'])->name('product.complete.listing');
+    
+    //service
+    Route::get('/service', [ServiceController::class, 'service'])->name('service');
+    Route::get('/service/search', [ServiceController::class, 'serviceSerch'])->name('service.serch');
+    Route::get('/add/service', [ServiceController::class, 'addService'])->name('add.service');
+    Route::get('/view/service/{id}', [ServiceController::class, 'viewService'])->name('view.service');
+    
 });
 
 

@@ -129,9 +129,9 @@ const closeModal = () => {
                         </div>
 
                         <div v-if="showModal"
-                            class="fixed inset-0 flex items-center bg-white/85 justify-center p-4 z-50">
+                            class="fixed inset-0 flex items-center bg-gray-600/85 justify-center p-4 z-50">
                             <!-- Modal Content -->
-                            <div class="border bg-gray-50/65 shadow rounded-lg p-10 w-full max-w-2xl relative">
+                            <div class="border bg-white shadow rounded-lg p-10 w-full max-w-2xl relative">
                                 <!-- Modal Header -->
                                 <div class="flex justify-between items-center mb-6 border-b py-3 border-gray-300">
                                     <h2 class="text-lg font-semibold text-gray-800">Add default address</h2>

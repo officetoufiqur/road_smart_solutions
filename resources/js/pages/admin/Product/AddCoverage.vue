@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import AppLayout from '@/layouts/AppLayout.vue';
 import { type BreadcrumbItem } from '@/types';
-import { Head } from '@inertiajs/vue3';
+import { Head , Link } from '@inertiajs/vue3';
 import { MinusIcon, PlusIcon } from 'lucide-vue-next';
 
 
@@ -21,7 +21,10 @@ const breadcrumbs: BreadcrumbItem[] = [
 
     <AppLayout :breadcrumbs="breadcrumbs">
         <div class="pt-10 lg:px-20 px-5">
-            <div class="flex gap-5">
+            <div class="flex justify-end">
+                <Link href="/add/coverage/search" class="text-white duration-300 cursor-pointer text-[14px] px-8 py-2.5 rounded bg-[#CA2026]">Back</Link>
+            </div>
+            <div class="flex gap-5 mt-5">
                 <div class="border bg-white p-8 rounded-xl shadow w-2/3">
                     <div class=" gap-4">
                         <!-- Title & Status -->

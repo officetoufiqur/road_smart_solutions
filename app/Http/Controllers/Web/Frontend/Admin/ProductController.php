@@ -27,4 +27,9 @@ class ProductController extends Controller
     {
         return Inertia::render('admin/Product/AddCoverage');
     }
+
+    public function productCompleteListing()
+    {
+        return Inertia::render('admin/Product/ProductCompleteListing');
+    }
 }
